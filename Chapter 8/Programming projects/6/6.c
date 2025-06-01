@@ -6,8 +6,6 @@ Write a "BIFF filter" that reads a message entered by the user and translates it
 
 Enter message: Hey dude, C is rilly cool
 In B1FF-speak: H3Y DUD3, C 15 R1LLY C00L!!!!!!!!!!
-
-
 */
 
 
