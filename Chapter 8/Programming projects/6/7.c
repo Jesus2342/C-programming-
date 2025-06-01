@@ -11,22 +11,22 @@ Enter row 3: 2 8 1
 int main()
 {
     int sum_rows = 0, sum_col = 0;
-    int matrix[3][3];
+    int grades[3][3];
     int i, j = 0;
     
     printf("Enter the rows: ");
     
     for(i = 0; i < 3; i++){
         for(j = 0; j < 3; j++){
-            scanf("%d", &matrix[i][j]);
+            scanf("%d", &grades[i][j]);
         }
     }
     
     
    for(i = 0; i < 3; i++){
         for(j = 0; j < 3; j++){
-           sum_rows += matrix[i][j];
-           sum_col += matrix[j][i];
+           sum_rows += grades[i][j];
+           sum_col += grades[j][i];
         }
         
         printf("Row totals %d\n", sum_rows);
