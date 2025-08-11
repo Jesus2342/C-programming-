@@ -1,0 +1,1 @@
+printf("The average for the numbers is %.2f\n", result);

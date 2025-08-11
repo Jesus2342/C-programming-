@@ -9,7 +9,7 @@
 #define MIN_STACK INT_MIN
 
 
-int arr_input[STACK_LENGTH] = {'2','1','5','4','1','+','+','+','+','='};
+int arr_input[STACK_LENGTH] = {'6','2','/','='};
 int stack[STACK_LENGTH];
 int top = EMPTY;
 
@@ -68,21 +68,40 @@ void analize(void){
             continue;
         }
 
+        b = pop();
+        a = pop();
+
+        if (token == '+'){
+            op = a + b;
+            push(op);
+        }
+
+        else if (token == '-')
+        {
+            op = a - b;
+            push(op);
+            
+        }
+
+        else if (token == '/')
+        {
+            op = a / b;
+            push(op);
+            
+        }
+
+        else if (token == '*')
+        {
+            op = a * b;
+            push(op);
+            
+        }
+
         else if (token == '=')
         {
             break;
         }
-        
-
-        b = pop();
-        a = pop();
-
-        op = a + b;
-
-        push(op);
 
     }
-
-    
 
 }

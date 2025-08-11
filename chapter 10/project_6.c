@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <limits.h>
+#include <ctype.h> 
 
 #define STACK_LENGTH 10 
 #define EMPTY (-1)
@@ -16,18 +17,18 @@ int top = EMPTY;
 void read_input();
 bool push(int value);
 int pop(void);
-int analize(void);
+void analize(void);
 
 
 
 
 int main()
 {
-    int res;
+    
     read_input();
-    res = analize();
+    analize();
 
-    printf("%d", res);
+    printf("%d", stack[0]);
 
     return 0;
 }
@@ -65,25 +66,54 @@ int pop(void){
     return popped_val;
 }
 
-int analize(void){
+void analize(void){
 
     int a = 0, b = 0;
     int op;
+    int token;
 
     for(int index = 0; index < STACK_LENGTH; index++){
-
-        //read if the parameter is a number or a symbol 
-
-        if(arr_input[index] == '+'){
-
-            a = pop();
-            b = pop();
-
-            op = a + b;
-            return op;
+        
+        token = arr_input[index];
+        
+        if(isdigit(token)){
+            push(token - '0');
+            continue;
         }
 
-        push(arr_input[index] - '0'); //converting char digit to integer 
+        b = pop();
+        a = pop();
+
+        if (token == '+'){
+            op = a + b;
+            push(op);
+        }
+
+        else if (token == '-')
+        {
+            op = a - b;
+            push(op);
+            
+        }
+
+        else if (token == '/')
+        {
+            op = a / b;
+            push(op);
+            
+        }
+
+        else if (token == '*')
+        {
+            op = a * b;
+            push(op);
+            
+        }
+
+        else if (token == '=')
+        {
+            break;
+        }
 
     }
 
